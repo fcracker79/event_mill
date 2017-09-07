@@ -33,7 +33,7 @@ setup(name='event_mill',
       packages=packages,
       install_requires=readfile(os.path.join(os.path.dirname(__file__), "requirements.txt")),
       zip_safe=False,
-      test_suite="event_mill.test",
+      test_suite="test",
       classifiers=[
           'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
