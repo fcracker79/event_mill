@@ -1,0 +1,2 @@
+class EventMillException(Exception):
+    pass
