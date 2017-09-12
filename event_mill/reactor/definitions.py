@@ -11,6 +11,13 @@ class SyncProjectionReactor(Reactor):
 
     def loop(self):
         while True:
-            with self._event_source.get_events(self._limit) as events:
+            self._event_source.before()
+            try:
+                events = self._event_source.get_events(self._limit)
                 for e in events:
                     self._projection.project(e)
+            except Exception as e:
+                # TODO log
+                self._event_source.after_error(e)
+            else:
+                self._event_source.after()

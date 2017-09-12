@@ -12,5 +12,17 @@ class Rewindable(metaclass=abc.ABCMeta):
 
 class EventSource(metaclass=abc.ABCMeta):
     @abc.abstractmethod
+    def before(self) -> None:
+        pass  # pragma: no cover
+
+    @abc.abstractmethod
     def get_events(self, limit: int) -> typing.Iterable[Event]:
+        pass  # pragma: no cover
+
+    @abc.abstractmethod
+    def after(self) -> None:
+        pass  # pragma: no cover
+
+    @abc.abstractmethod
+    def after_error(self, error: Exception) -> None:
         pass  # pragma: no cover
