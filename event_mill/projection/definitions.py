@@ -5,13 +5,12 @@ from event_mill.event.declarations import Event
 from event_mill.exceptions import EventMillException
 from event_mill.projection.declarations import Projection
 
-
 Record = typing.TypeVar('Record')
 
 
 class UnprocessableEventException(typing.Generic[Record], EventMillException):
-    def __init__(self, record: Record, *a, **kw):
-        super(UnprocessableEventException, self).__init__(*a, **kw)
+    def __init__(self, record: Record, *a):
+        super(UnprocessableEventException, self).__init__(*a)
         self._record = record
 
     @property
